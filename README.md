@@ -5,6 +5,8 @@ CASE WHEN XXXX > 0 THEN resposta ELSE resposta_else END nome_linha
 SUM() /*' Soma '*/
 MAX() /* 'Valor maior' */
 MIN() /* 'Valor menor' */
+LOWER() /* 'Deixa a letra minuscula' */
+LIKE() /* 'Pesquisa palavras' */
 COUNT() /* 'contar a quantidade de registro' */
 LENGTH() /* 'conta caractere' */
 TO_INT() /* 'Deixa o 'campo' em inteiro' */
@@ -43,7 +45,15 @@ SYS_CONTEXT('USERENV','CLIENT_IDENTIFIER') /* 'Pega o usuario logado no banco' *
 EXTRACT(YEAR FROM campo) /* 'Pegar apenas o ano' */
 EXTRACT(MONTH FROM campo) /* 'pegar apenas o mes' */
 EXTRACT(DAY FROM campo) /* 'pegar apenas o dia' */
-
+-------------------------
+/*'selecionar o proximo valor de uma sequence'*/
+SELECT 
+  SELETIVODBA.SEQ_VOUCHER.NEXTVAL 
+FROM
+  DUAL;
+-------------------------
+/*'Alterar o valor da sequence usando o "-" voce diminui o valor, usando o "+" voce sobe o valor'*/
+ALTER SEQUENCE S_SEG_EXE INCREMENT BY 1
 -------------------------
 /*'usar na multi-select'*/
 AND TO_CHAR(HF.CODTIPOFINANCEIRO) IN (  
