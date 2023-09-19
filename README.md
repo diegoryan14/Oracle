@@ -5,6 +5,9 @@ CASE WHEN XXXX > 0 THEN resposta ELSE resposta_else END nome_linha
 SUM() /*' Soma '*/
 MAX() /* 'Valor maior' */
 MIN() /* 'Valor menor' */
+UPPER() /* 'Deixa a letra maiuscula' */
+LOWER() /* 'Deixa a letra minuscula' */
+LIKE() /* 'Pesquisa palavras' */
 COUNT() /* 'contar a quantidade de registro' */
 LENGTH() /* 'conta caractere' */
 TO_INT() /* 'Deixa o 'campo' em inteiro' */
@@ -47,7 +50,6 @@ EXTRACT(DAY FROM campo) /* 'pegar apenas o dia' */
 <> /* 'diferente' */
 = /* 'igual' */
 
-
 -------------------------
 INSERT INTO tabela(seq,nome,descricao)
    VALUES(:PAR_SEQUENCIA, :PAR_NOME, :PAR_DESCRICAO)
@@ -62,6 +64,17 @@ SET nome_campo = 'test'
 WHERE 
    C.SEQUENCIA = :PAR_SEQUENCIA 
    AND C.ATIVO = 'N'
+   
+-------------------------
+/*'selecionar o proximo valor de uma sequence'*/
+SELECT 
+  SELETIVODBA.SEQ_VOUCHER.NEXTVAL 
+FROM
+  DUAL;
+  
+-------------------------
+/*'Alterar o valor da sequence usando o "-" voce diminui o valor, usando o "+" voce sobe o valor'*/
+ALTER SEQUENCE S_SEG_EXE INCREMENT BY 1
 
 -------------------------
 /*'usar na multi-select'*/
@@ -72,6 +85,7 @@ AND TO_CHAR(HF.CODTIPOFINANCEIRO) IN (
                  DUAL
              CONNECT BY
               	regexp_substr(COALESCE(:PAR_CODTIPOFINANCEIRO, TO_CHAR(HF.CODTIPOFINANCEIRO)), '[^,]+', 1, LEVEL) IS NOT NULL)
+	       
 -------------------------
 /*'guarda o select em uma variavel'*/
 WITH TDATA as (
@@ -88,11 +102,13 @@ FROM (
       FROM TDATA
 )
 ORDER BY ORDEM
+
 -------------------------
 /* 'Cria uma tabela ficticia para rodar o SELECT ' */
 SELECT
 	TO_CHAR(SYSDATE, 'DD/MM/YYYY HH24:MI:SS') DATETIME
 FROM DUAL
+
 -------------------------
 /* 'Adicionar FOREIGN KEY' */
 ALTER TABLE table_name
