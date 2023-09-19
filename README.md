@@ -44,6 +44,9 @@ EXTRACT(YEAR FROM campo) /* 'Pegar apenas o ano' */
 EXTRACT(MONTH FROM campo) /* 'pegar apenas o mes' */
 EXTRACT(DAY FROM campo) /* 'pegar apenas o dia' */
 
+<> /* 'diferente' */
+= /* 'igual' */
+
 -------------------------
 /*'usar na multi-select'*/
 AND TO_CHAR(HF.CODTIPOFINANCEIRO) IN (  
