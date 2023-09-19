@@ -1,4 +1,4 @@
-# COMANDO_ORACLE
+teste# COMANDO_ORACLE
 
 COALESCE(X,1) /*"Se x for nulo, fica 1"*/
 CASE WHEN XXXX > 0 THEN resposta ELSE resposta_else END nome_linha
