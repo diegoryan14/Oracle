@@ -5,7 +5,7 @@ CASE WHEN XXXX > 0 THEN resposta ELSE resposta_else END nome_linha
 SUM() /*' Soma '*/
 MAX() /* 'Valor maior' */
 MIN() /* 'Valor menor' */
-UPPER() /* 'Deixa a letra maiuscula' */
+UPPER() /* 'Deixa a letra maiuscula' */ 
 LOWER() /* 'Deixa a letra minuscula' */
 LIKE() /* 'Pesquisa palavras' */
 COUNT() /* 'contar a quantidade de registro' */
