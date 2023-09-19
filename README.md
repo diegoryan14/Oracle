@@ -47,6 +47,22 @@ EXTRACT(DAY FROM campo) /* 'pegar apenas o dia' */
 <> /* 'diferente' */
 = /* 'igual' */
 
+
+-------------------------
+INSERT INTO tabela(seq,nome,descricao)
+   VALUES(:PAR_SEQUENCIA, :PAR_NOME, :PAR_DESCRICAO)
+
+-------------------------
+DELETE FROM tabela
+   WHERE nome = :par_NOME
+   
+-------------------------
+UPDATE tabela
+SET nome_campo = 'test'
+WHERE 
+   C.SEQUENCIA = :PAR_SEQUENCIA 
+   AND C.ATIVO = 'N'
+
 -------------------------
 /*'usar na multi-select'*/
 AND TO_CHAR(HF.CODTIPOFINANCEIRO) IN (  
