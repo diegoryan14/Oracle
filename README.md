@@ -20,6 +20,8 @@ LPAD(xxx,10,' ') /*"Coloca os espaços a esquerda faltantes do valor 10 - x"*/
 TRIM() /* 'Tirar os espaços' */
 TRUNC() /* 'Tirar os minutos/hora' */
 
+to_char(SUM(ROUND(Z.VALOR,2)), 'FM999G999G990D00', 'nls_numeric_characters='',.''') /*" Formatar numero em real "*/
+
 UNION /*"Unir SELECT com DISTINCT"*/
 UNION ALL /*"Unir SELECT sem DISCTINCT"*/
 
